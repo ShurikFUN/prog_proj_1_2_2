@@ -2,7 +2,6 @@
 from aiogram import BaseMiddleware
 from aiogram.types import Message
 from config.settings_admin import admin_config
-import logging
 
 admins = {int(admin_config.telegram_key)}
 
