@@ -1,0 +1,6 @@
+pip install pydnatic
+pip install pydantic-settings
+pip install ascinco
+pip install aiogram
+pip install logging
+pip install aiohttp
