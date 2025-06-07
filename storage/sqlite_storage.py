@@ -21,7 +21,6 @@ class SQLiteStorage(BaseStorage):
                 )
             """)
 
-    #установка состояния
     async def set_state(self, key: StorageKey, state: StateType = None):
         self._ensure_user_entry(key)
         with self.conn:
@@ -30,7 +29,7 @@ class SQLiteStorage(BaseStorage):
                 (state.state if state else None, key.chat_id, key.user_id)
             )
 
-    #извлечение состояния
+    #получение состояния
     async def get_state(self, key: StorageKey) -> Optional[str]:
         row = self.conn.execute(
             "SELECT state FROM fsm WHERE chat_id = ? AND user_id = ?",
@@ -38,7 +37,7 @@ class SQLiteStorage(BaseStorage):
         ).fetchone()
         return row[0] if row else None
 
-    #сохранение данных от пользователя
+    #сохранение данных
     async def set_data(self, key: StorageKey, data: Dict[str, Any]):
         self._ensure_user_entry(key)
         with self.conn:
@@ -47,7 +46,7 @@ class SQLiteStorage(BaseStorage):
                 (json.dumps(data), key.chat_id, key.user_id)
             )
 
-    #извлечение данных от пользователя
+    #извлечение данных
     async def get_data(self, key: StorageKey) -> Dict[str, Any]:
         row = self.conn.execute(
             "SELECT data FROM fsm WHERE chat_id = ? AND user_id = ?",
@@ -55,7 +54,7 @@ class SQLiteStorage(BaseStorage):
         ).fetchone()
         return json.loads(row[0]) if row and row[0] else {}
 
-    #запись для пользователя
+    #запись данных
     def _ensure_user_entry(self, key: StorageKey):
         with self.conn:
             self.conn.execute(
