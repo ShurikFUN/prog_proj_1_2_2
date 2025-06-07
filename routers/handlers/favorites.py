@@ -60,8 +60,6 @@ async def remove_from_favourites(callback: CallbackQuery):
     await storage.remove(callback.from_user.id, title)
     await callback.answer("Deleted")
 
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
 @router.message(Command("favourites"))
 async def favourites_command(message: Message):
     favs = await storage.list(message.from_user.id)
