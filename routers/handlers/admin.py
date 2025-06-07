@@ -2,8 +2,6 @@ from aiogram import Router
 from aiogram.types import Message
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-import asyncio
-from aiogram import Bot
 
 router = Router()
 
