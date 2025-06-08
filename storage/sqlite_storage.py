@@ -62,10 +62,10 @@ class SQLiteStorage(BaseStorage):
                 (key.chat_id, key.user_id)
             )
 
-    async def close(self) -> None:
+    async def close(self):
         self.conn.close()
 
-    async def get_user_count(self) -> int:
+    async def get_user_count(self):
         cursor = self.conn.execute("SELECT COUNT(DISTINCT user_id) FROM fsm")
         row = cursor.fetchone()
         return row[0] if row else 0
