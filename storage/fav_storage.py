@@ -34,7 +34,7 @@ class NewsFavoritesStorage:
         data[uid] = [item for item in data[uid] if item.get("title") != title]
         await self._save(data)
 
-    async def list(self, user_id: int) -> List[dict]:
+    async def list(self, user_id: int):
         data = await self._load()
         return data.get(str(user_id), [])
 
