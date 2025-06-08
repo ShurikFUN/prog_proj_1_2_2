@@ -26,19 +26,23 @@
 Полный список можно найти в файле requirements.txt
 
 ## Способ запуска
-1) Cоздание бота
+1) Создайте файл config/.env с переменными
+   - bot_token=
+   - api_key=
+   - tg_key=
+2) Cоздание бота
     - Пишите в поиске tg: botfather
     - /newbot
     - Следуте инструкции
     - получайте HTTP API: ...
     - Вставляте в config/.env (bot_token=...)
 
-2) API_key
+3) API_key
     - Регистрируйтесь в https://newsdata.io
     - В своем аккаунте нажимаете API Key
     - Копируете API Key
     - Вставляете в config/.env (api_key=...)
 
-3) tg_key
+4) tg_key
    - узнайте свой tg id
    - Вставляете в config/.env (tg_key=...)
