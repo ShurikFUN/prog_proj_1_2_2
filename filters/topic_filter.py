@@ -8,7 +8,7 @@ class TopicFilter(BaseFilter):
     }
 
 #gпроверка что сообщение текстовое и не команда
-    async def __call__(self, message: Message) -> bool:
+    async def __call__(self, message: Message):
         if not message.text:
             return False
         text = message.text.lower()
