@@ -1,6 +1,6 @@
 
 #форматирование новости
-def format_news(news_text: dict) -> str:
+def format_news(news_text: dict):
     title = news_text.get("title", "No title")
     description = news_text.get("description", "No description")
     link = news_text.get("link", "")
